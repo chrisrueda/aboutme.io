@@ -79,76 +79,29 @@ function activarEnlaceActivo() {
   });
 }
 
-// Animar timeline dinámicamente al hacer scroll
-const observerTimeline = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.remove('opacity-0', 'translate-y-8');
-      observerTimeline.unobserve(entry.target);
-    }
-  });
-}, {
-  threshold: 0.3
-});
-
-document.querySelectorAll('.timeline-item').forEach(item => {
-  observerTimeline.observe(item);
-});
-
-// Función: animar solo los elementos visibles
-function animarTimeline(containerId) {
-  const items = document.querySelectorAll(`#${containerId} .timeline-item`);
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const element = entry.target;
-        const index = [...items].indexOf(element);
-        element.style.transitionDelay = `${index * 150}ms`;
-        element.classList.add('opacity-100', 'translate-y-0');
-        observer.unobserve(element);
-      }
-    });
-  }, {
-    threshold: 0.2
-  });
-
-  items.forEach(item => {
-    item.classList.remove('opacity-100', 'translate-y-0');
-    item.classList.add('opacity-0', 'translate-y-8');
-    item.style.transitionDelay = '0ms';
-    observer.observe(item);
-  });
-}
-
-
-// Tabs dinámicos + animación
+// Zigzag
 document.addEventListener('DOMContentLoaded', () => {
-  const tabs = {
-    academic: {
-      btn: document.getElementById('tab-academic'),
-      container: document.getElementById('academic-timeline')
-    },
-    professional: {
-      btn: document.getElementById('tab-professional'),
-      container: document.getElementById('professional-timeline')
-    }
-  };
+  const academicBtn = document.getElementById('tab-academic');
+  const professionalBtn = document.getElementById('tab-professional');
 
-  function activarPestaña(nombreActiva) {
-    for (const [nombre, tab] of Object.entries(tabs)) {
-      const isActive = nombre === nombreActiva;
-      tab.btn.classList.toggle('active-tab', isActive);
-      tab.container.classList.toggle('hidden', !isActive);
-      if (isActive) animarTimeline(tab.container.id);
-    }
-  }
+  const academicTimeline = document.getElementById('academic-timeline');
+  const professionalTimeline = document.getElementById('professional-timeline');
 
-  tabs.academic.btn.addEventListener('click', () => activarPestaña('academic'));
-  tabs.professional.btn.addEventListener('click', () => activarPestaña('professional'));
+  academicBtn.addEventListener('click', () => {
+    academicBtn.classList.add('active-tab');
+    professionalBtn.classList.remove('active-tab');
+    academicTimeline.classList.remove('hidden');
+    professionalTimeline.classList.add('hidden');
+  });
 
-  // Activar la pestaña por defecto
-  activarPestaña('academic');
+  professionalBtn.addEventListener('click', () => {
+    professionalBtn.classList.add('active-tab');
+    academicBtn.classList.remove('active-tab');
+    professionalTimeline.classList.remove('hidden');
+    academicTimeline.classList.add('hidden');
+  });
+
+  // Mostrar Academic por defecto
+  academicBtn.click();
 });
-
-
 
