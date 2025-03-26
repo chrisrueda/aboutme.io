@@ -1,0 +1,71 @@
+.header {
+  background-color: rgba(31, 113, 244, 0.95); /* Azul opaco al cargar */
+  transition: background-color 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+
+.header.scrolled {
+  background-color: rgba(59, 131, 246, 0.927); /* Azul translúcido al hacer scroll */
+}
+
+/* Dark mode */
+.dark .header {
+  background-color: rgba(29, 78, 216, 0.95); /* Azul oscuro opaco */
+}
+
+.dark .header.scrolled {
+  background-color: rgba(29, 78, 216, 0.7); /* Azul oscuro translúcido */
+}
+.nav-active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #e5e7eb; /* Tailwind's gray-200 */
+    border-radius: 9999px;
+    overflow: hidden;
+    margin-top: 4px;
+    margin-bottom: 16px;
+}
+  
+.skill-fill {
+    height: 100%;
+    width: 0%;
+    background-color: #5578f7; /* Tailwind's purple-500 */
+    transition: width 1s ease-out;
+}
+  
+.dark .skill-bar {
+    background-color: #374151; /* Tailwind gray-700 in dark mode */
+}
+
+.nav-link {
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.tab-button.active {
+  font-weight: bold;
+  border-bottom-width: 2px;
+}
+
+.timeline-view {
+  position: relative;
+}
+
+.active-tab {
+  font-weight: bold;
+  color: #0a2a94; /* Tailwind purple-600 */
+  border-bottom: 2px solid #3a64ed;
+}
+.dark .active-tab {
+  color: #c4b5fd; /* purple-300 */
+  border-bottom: 2px solid #c4b5fd;
+}
+

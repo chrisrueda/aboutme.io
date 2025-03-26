@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Experience</title>
+  <script>
+    tailwind.config = { darkMode: 'media' };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
+  <!-- Header -->
+  <div id="header-placeholder"></div>
+
+  <main class="py-16 px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold">Experience</h2>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex justify-center mb-10 space-x-8 text-lg font-semibold">
+      <button id="tab-academic" class="tab-button active-tab text-gray-700 dark:text-gray-300 flex items-center gap-2 border-b-2 border-transparent hover:border-gray-400">
+        <i class="fas fa-graduation-cap"></i> Academic
+      </button>
+      <button id="tab-professional" class="tab-button text-purple-600 dark:text-purple-400 flex items-center gap-2 border-b-2 border-transparent hover:border-purple-400">
+        <i class="fas fa-briefcase"></i> Professional
+      </button>
+    </div>
+
+    <!-- Academic Timeline -->
+    <div id="academic-timeline" class="timeline-zigzag relative mx-auto w-full md:w-3/4 lg:w-2/3">
+      <div class="timeline-item zig-left">
+        <div class="timeline-content">
+          <h3 class="text-xl font-bold">PhD in Computer Science</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">University Name</p>
+          <p class="text-sm text-gray-400"><i class="fas fa-calendar-alt mr-1"></i> 2024 – 2028</p>
+        </div>
+      </div>
+      <div class="timeline-item zig-right">
+        <div class="timeline-content">
+          <h3 class="text-xl font-bold">MSc in Data Science</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">University Name</p>
+          <p class="text-sm text-gray-400"><i class="fas fa-calendar-alt mr-1"></i> 2017 – 2018</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Professional Timeline -->
+    <div id="professional-timeline" class="timeline-zigzag relative mx-auto w-full md:w-3/4 lg:w-2/3 hidden">
+      <div class="timeline-item zig-left">
+        <div class="timeline-content">
+          <h3 class="text-xl font-bold">Lead Data Scientist</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">BrainSightAI</p>
+          <p class="text-sm text-gray-400"><i class="fas fa-calendar-alt mr-1"></i> Jul 2023 – Present</p>
+        </div>
+      </div>
+      <div class="timeline-item zig-right">
+        <div class="timeline-content">
+          <h3 class="text-xl font-bold">MLE & Data Engineer</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">Cognizant</p>
+          <p class="text-sm text-gray-400"><i class="fas fa-calendar-alt mr-1"></i> 2020 – 2023</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
