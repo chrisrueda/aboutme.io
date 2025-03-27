@@ -83,7 +83,7 @@
 .timeline-zigzag::before {
   content: '';
   position: absolute;
-  width: 2px;
+  width: 3px;
   height: 100%;
   background-color: var(--primary-color-dark);
   left: 50%;

@@ -73,7 +73,7 @@ function activarEnlaceActivo() {
         'dark:text-blue-300',
         'text-lg',
         'transition-colors',
-        'duration-300'
+        'duration-200'
       );
     }
   });
