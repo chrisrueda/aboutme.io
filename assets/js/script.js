@@ -105,3 +105,38 @@ document.addEventListener('DOMContentLoaded', () => {
   academicBtn.click();
 });
 
+// Cargar artículos
+document.addEventListener('DOMContentLoaded', () => {
+  renderArticulos(); // Usa el selector por defecto
+});
+function renderArticulos(selector = '#articulos') {
+  const container = document.querySelector(selector);
+  if (!container) return;
+
+  const articulos = container.querySelectorAll('.articulo');
+
+  articulos.forEach(div => {
+    const title = div.dataset.title;
+    const published = div.dataset.published;
+    const summary = div.dataset.summary;
+    const link = div.dataset.link;
+
+    div.innerHTML = `
+    <div class="mb-4 p-4 border rounded-2xl shadow hover:shadow-lg transition bg-white dark:bg-gray-800">
+      <div class="flex items-center justify-between">
+        <a href="${link}" target="_blank" class="text-xl font-semibold text-blue-600 dark:text-blue-400 hover:underline">
+          ${title}
+        </a>
+        <a href="${link}" target="_blank" class="text-gray-400 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400" aria-label="Ver artículo">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M14 3h7m0 0v7m0-7L10 14m-4 0h4v4" />
+          </svg>
+        </a>
+      </div>
+      <p class="text-sm text-gray-600 dark:text-gray-300">${published}</p>
+      <p class="mt-2 text-gray-800 dark:text-gray-300">${summary}</p>
+    </div>
+  `;
+  });
+}
