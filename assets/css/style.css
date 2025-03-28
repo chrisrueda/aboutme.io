@@ -7,17 +7,17 @@
 }
 
 .header {
-  background-color: rgba(31, 113, 244, 0.95);
+  background-color: rgb(31, 113, 244);
   transition: background-color 0.3s ease;
   backdrop-filter: blur(6px);
 }
 
 .header.scrolled {
-  background-color: rgba(59, 131, 246, 0.927);
+  background-color: rgb(31, 113, 244);
 }
 
 .dark .header {
-  background-color: rgba(29, 78, 216, 0.95);
+  background-color: rgb(55, 106, 247);
 }
 
 .dark .header.scrolled {
@@ -28,32 +28,29 @@
   font-weight: bold;
   text-decoration: underline;
 }
-
-.skill-bar {
-  width: 100%;
-  height: 8px;
-  background-color: var(--primary-background-light);
-  border-radius: 9999px;
-  overflow: hidden;
-  margin-top: 4px;
-  margin-bottom: 16px;
+ 
+/*Bar Animation */
+@keyframes fillBar {
+  from { width: 0; }
+  to { width: var(--target-width); }
 }
 
-.skill-fill {
-  height: 100%;
-  width: 0%;
-  background-color: var(--primary-color-light);
-  transition: width 1s ease-out;
+.skill-bar-fill {
+  width: 0;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.dark .skill-bar {
-  background-color: var(--primary-background-dark);
+.skill-content.visible .skill-bar-fill {
+  animation-name: fillBar;
+  animation-duration: 1.5s;
 }
 
-.dark .skill-fill {
-  background-color: var(--primary-color-dark);
+.arrow {
+  transition: transform 0.3s ease;
 }
 
+/**/
 .nav-link {
   transition: all 0.3s ease;
 }
@@ -139,7 +136,7 @@
   border-color: var(--primary-background-dark);
 }
 
-/* Responsive Adjustments */
+/* Responsive Adjustments
 @media (max-width: 768px) {
   .timeline-zigzag::before {
       left: 8px;
@@ -159,4 +156,4 @@
       width: 100%;
       text-align: left !important;
   }
-}
+} */
