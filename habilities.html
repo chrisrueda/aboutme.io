@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Experience</title>
+  <script>
+    tailwind.config = { darkMode: 'media' };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
+  <!-- Header -->
+  <div id="header-placeholder"></div>
+
+  <!-- Main Content -->
+  <main class="flex justify-center py-24"> 
+    <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 w-11/12 md:w-2/3 lg:w-2/2">
+    
+      <section class="py-1">
+        <div class="text-center text-2xl font-bold mb-4">
+          <h2 class="text-2xl font-bold">Experience</h2>
+        </div>
+
+        <!-- Botones de pestañas -->
+        <div class="flex justify-center mb-10 space-x-8 text-lg font-semibold">
+          <button id="tab-academic" class="tab-button active-tab text-gray-700 dark:text-gray-300 flex items-center gap-2">
+            <i class="fas fa-graduation-cap"></i> Academic
+          </button>
+          <button id="tab-professional" class="tab-button active-tab text-gray-700 dark:text-gray-300 flex items-center gap-2">
+            <i class="fas fa-briefcase"></i> Professional
+          </button>
+        </div>
+
+        <!-- Academic Timeline -->
+        <div id="academic-timeline" class="timeline-zigzag relative mx-auto w-full md:w-3/4 lg:w-2/3">
+          <div class="timeline-item zig-left">
+            <div class="timeline-content">
+              <h3 class="text-xl font-bold">PhD(c) in Agricultural Engineering</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400">University of Córdoba</p>
+              <p class="text-sm text-gray-400"><i class="fas fa-calendar-alt mr-1"></i> 2024 – 2028</p>
+            </div>
+          </div>
+          <div class="timeline-item zig-right">
+            <div class="timeline-content">
+              <h3 class="text-xl font-bold">MSc in Robotics & Automation</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400">Politechnic University of Madrid</p>
+              <p class="text-sm text-gray-400"><i class="fas fa-calendar-alt mr-1"></i> 2017 – 2018</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Timeline -->
+        <div id="professional-timeline" class="timeline-zigzag relative mx-auto w-full md:w-3/4 lg:w-2/3 hidden">
+          <div class="timeline-item zig-left">
+            <div class="timeline-content">
+              <h3 class="text-xl font-bold">Momentum's Program Researcher</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400">National Institute of Agricultural and Food Research (INIA-CSIC)</p>
+              <p class="text-sm text-gray-400"><i class="fas fa-calendar-alt mr-1"></i> 2024 – Present</p>
+            </div>
+          </div>
+          <div class="timeline-item zig-right">
+            <div class="timeline-content">
+              <h3 class="text-xl font-bold">Guest Lecturer - Data Science Master's Program</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400">Pontifical Catholic University of Ecuador</p>
+              <p class="text-sm text-gray-400"><i class="fas fa-calendar-alt mr-1"></i> 2023 – Present</p>
+            </div>
+          </div>
+      </section>
+
+      <!-- Certificados -->
+      <section class="mt-20 w-full">
+        <h2 class="text-2xl font-bold mb-6">Certificados</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="bg-white dark:bg-gray-800 shadow-lg rounded-xl p-4 text-left flex items-center justify-between">
+            <div>
+              <h3 class="font-semibold text-lg mb-1">Deep Learning Specialization</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-300">Coursera, Andrew Ng - Stanford University</p>
+              <p class="text-xs text-gray-500 dark:text-gray-400">Emitido en: Ene 2023</p>
+            </div>
+            <a href="https://coursera.org/share/deep-learning-badge" target="_blank">
+              <img src="https://img.shields.io/badge/Ver%20Certificado-blue?style=for-the-badge&logo=Coursera&logoColor=white" alt="Badge Coursera">
+            </a>
+          </div>
+
+        </div>
+      </section>
+    </div>
+  </main>
+  
+    
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

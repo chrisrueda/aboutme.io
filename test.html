@@ -1,97 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Perfil</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          animation: {
-            fadeIn: "fadeIn 1.5s ease-out forwards",
-          },
-          keyframes: {
-            fadeIn: {
-              '0%': { opacity: 0, transform: 'translateY(20px)' },
-              '100%': { opacity: 1, transform: 'translateY(0)' },
-            },
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Skills Section</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        @keyframes fillBar {
+            from { width: 0; }
+            to { width: var(--target-width); }
         }
-      }
-    }
-  </script>
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
+
+        .skill-bar-fill {
+            width: 0;
+            animation-fill-mode: forwards;
+            animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .skill-content.visible .skill-bar-fill {
+            animation-name: fillBar;
+            animation-duration: 1.5s;
+        }
+
+        .arrow {
+            transition: transform 0.3s ease;
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-br from-blue-50 via-white to-purple-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-800 dark:text-white font-sans">
-
-  <main class="min-h-screen flex flex-col items-center justify-center px-6 text-center">
-    <div class="w-full max-w-4xl animate-fadeIn">
-      <!-- Foto y nombre -->
-      <div class="w-full flex justify-center mb-8">
-        <img src="https://via.placeholder.com/150" alt="Foto de perfil" class="w-40 h-40 rounded-full shadow-lg border-4 border-white dark:border-gray-700">
-      </div>
-
-      <!-- Nombre y especialidad -->
-      <h1 class="text-4xl font-bold mb-2">Tu Nombre</h1>
-      <p class="text-lg text-gray-600 dark:text-gray-300 mb-4">Especialista en Inteligencia Artificial y Desarrollo Web</p>
-
-      <!-- Frase destacada -->
-      <p class="italic text-gray-500 dark:text-gray-400 max-w-xl mb-8">"Apasionado por resolver problemas complejos con tecnología innovadora. Siempre aprendiendo, siempre construyendo."</p>
-
-      <!-- Botones -->
-      <div class="flex flex-wrap gap-4 justify-center">
-        <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-semibold transition">Descargar CV</a>
-        <a href="#contacto" class="border-2 border-blue-600 hover:bg-blue-600 hover:text-white text-blue-600 px-6 py-2 rounded-full font-semibold transition">Contáctame</a>
-      </div>
-
-      <!-- Redes sociales -->
-      <div class="flex gap-6 mt-10 text-2xl justify-center">
-        <a href="#" class="hover:text-blue-500 transition"><i class="fab fa-linkedin"></i></a>
-        <a href="#" class="hover:text-gray-800 dark:hover:text-white transition"><i class="fab fa-github"></i></a>
-        <a href="#" class="hover:text-pink-500 transition"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="hover:text-blue-400 transition"><i class="fab fa-twitter"></i></a>
-      </div>
-
-      <!-- Proyectos destacados -->
-      <section class="mt-16 w-full">
-        <h2 class="text-2xl font-bold mb-6">Proyectos Destacados</h2>
-        <div class="flex flex-wrap justify-center gap-6 px-2">
-          <!-- ... proyectos ... -->
+<body class="bg-gray-100 p-8">
+    <div class="max-w-2xl mx-auto">
+        <div class="skill-section bg-white shadow-lg rounded-lg mb-4">
+            <div class="skill-header flex justify-between items-center p-4 cursor-pointer">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-brain text-purple-600"></i>
+                    <h3 class="text-lg font-semibold text-gray-800">Data Science & AI</h3>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <span class="text-sm text-gray-500">4+ Years XP</span>
+                    <i class="fas fa-chevron-down arrow text-gray-500"></i>
+                </div>
+            </div>
+            <div class="skill-content hidden p-4">
+                <div class="space-y-4">
+                    <div class="skill-item">
+                        <div class="flex justify-between text-sm text-gray-600 mb-1">
+                            <span>Computer Vision</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-2.5">
+                            <div class="skill-bar-fill bg-purple-600 h-2.5 rounded-full" 
+                                 data-percentage="95" 
+                                 style="--target-width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="flex justify-between text-sm text-gray-600 mb-1">
+                            <span>Generative AI</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-2.5">
+                            <div class="skill-bar-fill bg-purple-600 h-2.5 rounded-full" 
+                                 data-percentage="95"
+                                 style="--target-width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="flex justify-between text-sm text-gray-600 mb-1">
+                            <span>Natural Language Processing</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="bg-gray-200 rounded-full h-2.5">
+                            <div class="skill-bar-fill bg-purple-600 h-2.5 rounded-full" 
+                                 data-percentage="95"
+                                 style="--target-width: 95%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </section>
-
-      <!-- Certificados -->
-      <section class="mt-20 w-full">
-        <h2 class="text-2xl font-bold mb-6">Certificados</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl p-4 text-left">
-            <h3 class="font-semibold text-lg mb-1">Deep Learning Specialization</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-300">Coursera, Andrew Ng - Stanford University</p>
-            <p class="text-xs text-gray-500 dark:text-gray-400">Emitido en: Ene 2023</p>
-          </div>
-          <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl p-4 text-left">
-            <h3 class="font-semibold text-lg mb-1">Data Science Professional Certificate</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-300">IBM - Coursera</p>
-            <p class="text-xs text-gray-500 dark:text-gray-400">Emitido en: Mar 2022</p>
-          </div>
-          <div class="bg-white dark:bg-gray-800 shadow-md rounded-xl p-4 text-left">
-            <h3 class="font-semibold text-lg mb-1">Frontend Developer Career Path</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-300">Scrimba</p>
-            <p class="text-xs text-gray-500 dark:text-gray-400">Emitido en: Jul 2021</p>
-          </div>
-        </div>
-      </section>
-
     </div>
-  </main>
 
+    <script>
+        document.querySelectorAll('.skill-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const arrow = header.querySelector('.arrow');
+                
+                // Toggle visibility
+                content.classList.toggle('hidden');
+                content.classList.toggle('visible');
+                arrow.classList.toggle('rotate-180');
+
+                // Reset bars when closing
+                if (!content.classList.contains('visible')) {
+                    const skillBars = content.querySelectorAll('.skill-bar-fill');
+                    skillBars.forEach(bar => {
+                        bar.style.width = '0';
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
