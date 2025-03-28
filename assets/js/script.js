@@ -8,26 +8,6 @@ window.addEventListener('scroll', function () {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  const skillItems = document.querySelectorAll('.skill-item');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const fill = entry.target.querySelector('.skill-fill');
-        const percent = entry.target.getAttribute('data-percent');
-        fill.style.width = `${percent}%`;
-        observer.unobserve(entry.target); // solo una vez
-      }
-    });
-  }, {
-    threshold: 0.4 // al menos 40% visible
-  });
-
-  skillItems.forEach(item => {
-    observer.observe(item);
-  });
-});
-document.addEventListener('DOMContentLoaded', () => {
   // Marcar enlace activo
   const navLinks = document.querySelectorAll('header nav a');
   const currentPage = window.location.pathname.split('/').pop();
@@ -140,3 +120,23 @@ function renderArticulos(selector = '#articulos') {
   `;
   });
 }
+// Skills Animation
+document.querySelectorAll('.skill-header').forEach(header => {
+  header.addEventListener('click', () => {
+      const content = header.nextElementSibling;
+      const arrow = header.querySelector('.arrow');
+      
+      // Toggle visibility
+      content.classList.toggle('hidden');
+      content.classList.toggle('visible');
+      arrow.classList.toggle('rotate-180');
+
+      // Reset bars when closing
+      if (!content.classList.contains('visible')) {
+          const skillBars = content.querySelectorAll('.skill-bar-fill');
+          skillBars.forEach(bar => {
+              bar.style.width = '0';
+          });
+      }
+  });
+});
